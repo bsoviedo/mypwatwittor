@@ -1,10 +1,19 @@
 //Register Service Worker
 
+let url= window.location.href;
+
+let swLocation= '/mypwatwittor/sw.js'
+
+
 if(navigator.serviceWorker ){
-    navigator.serviceWorker.register('/sw.js')
+
+    if ( url.includes('localhost')){
+        swLocation= '/sw.js'
+    }
+
+    navigator.serviceWorker.register(swLocation) //en desarrollo wl SW esta bien, en prod no
+
 }
-
-
 
 // Referencias de jQuery
 
